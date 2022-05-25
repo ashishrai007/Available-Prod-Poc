@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Order Products">
+    
+        <div class="slds-m-around_medium">
+            <template if:true={responseTest}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={responseTest}
+                    columns={columns}                    
+                    draft-values={draftValues}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+        </br>
+           <!-- <template if:true={data}> -->
+                <lightning-button 
+                variant="brand"
+                label="Activate"
+                title="Activate"
+                onclick={activateOrder}
+                class="slds-m-left_small slds-text-align_center slds-align_absolute-center"
+                disabled={buttonDisable}
+            ></lightning-button>
+           <!-- </template>  -->
+            
+            
+            <template if:true={error}>
+                <!-- handle Apex error -->
+            </template>
+        </div>
+    </lightning-card>
+</template>

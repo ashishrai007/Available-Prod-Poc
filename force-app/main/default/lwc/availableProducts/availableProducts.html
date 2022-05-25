@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Available Products">
+        <div class="slds-m-around_medium">
+            <template if:true={products}>
+                
+                <lightning-datatable
+                    key-field="Id"
+                    data={products}
+                    columns={columns}        
+                    draft-values={draftValues}>
+                </lightning-datatable>
+        </br>
+                <lightning-button 
+                variant="brand"
+                label="Add to Order"
+                title="AddtoOrder"
+                onclick={addtoOrder}
+                class="slds-m-left_small slds-text-align_center slds-align_absolute-center"
+                disabled={buttonDisable} >
+                </lightning-button>
+               
+            </template>
+        </br>
+         <c-order-products record-id={recordId}></c-order-products>  
+            
+            
+            <template if:true={error}>
+                <!-- handle Apex error -->
+            </template>
+        </div>
+    </lightning-card>
+</template>

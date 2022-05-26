@@ -1,18 +1,23 @@
-# Salesforce DX Project: Next Steps
+POC Available Products
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Lightning Components
 
-## How Do You Plan to Deploy Your Changes?
+1. Available Products
+2. Order Products
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Component Overview:
 
-## Configure Your Salesforce DX Project
+Available Products: On Order Detail page it is showing a list of products with Name and List Price as columns based on Order Pricebook here user can select any product and click
+AddtoOrder button then selected product is added under Order Product here we need to do explicit refresh to see the order product added in below 'Order Products' component and after that new or existing product addition may gets added to Order Products and no need to do expicit refresh.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
 
-## Read All About It
+Order Products: On Order Detial page it is Showing products which are added from available products component as order items and enabling Activate button here after clicking this button the Order status gets updated to Activated and related order items fulfilmentstatus updated to Activated and both the buttons got disabled. 
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Apex Class:
+1. OrderController
+2. TestOrderController
+
+OrderController: 
+
+Feedback: Extra Acceptance criteria is not covered as part of this poc.
+

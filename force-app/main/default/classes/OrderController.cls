@@ -71,9 +71,9 @@ public with sharing class OrderController {
         
     }
 
-    /*Inserting and Updating Order Item */
+    /*Inserting and Updating Order Item 
 
-    /* if product alredy exist then update the quantity field of the same product and if not present then insert it as frest order item */
+    * if product alredy exist then update the quantity field of the same product and if not present then insert it as frest order item */
 
     @AuraEnabled
     public static void addtoOrder(List<PricebookEntry> products, String orderId) {

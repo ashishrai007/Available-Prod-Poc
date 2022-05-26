@@ -40,9 +40,7 @@ export default class OrderProducts extends LightningElement {
                 console.error(error);
             }
         }
-        connectedCallback() {
-            console.log("recordId==>", this.recordId);
-        }
+        
         // To refresh orderProduct data table
         @api handleClick() {
              refreshApex(this._wiredData);

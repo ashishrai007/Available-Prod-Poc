@@ -2,7 +2,6 @@ import { LightningElement, wire, api,track } from 'lwc';
 import getOrderProducts from '@salesforce/apex/OrderController.getOrderProducts';
 import activateOrder from '@salesforce/apex/OrderController.activateOrder';
 import { refreshApex } from '@salesforce/apex';
-import { updateRecord } from 'lightning/uiRecordApi';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 

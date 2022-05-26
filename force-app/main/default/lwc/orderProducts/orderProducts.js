@@ -51,7 +51,7 @@ export default class OrderProducts extends LightningElement {
 
     activateOrder() { 
         
-        activateOrder({ ordProducts : this.responseTest }) // from here passing orderitems ids to apex and getting response result
+        activateOrder({ ordProducts : this.responseTest }) // from here passing orderitems to apex controller and getting response result
             .then(result => {
                 this.message = result;
                 this.error = undefined;

@@ -1,4 +1,6 @@
 public with sharing class OrderController {
+    
+    /* This method is returning order products based on orderid */
     @AuraEnabled(cacheable=true)
     public static List<OrderItem> getOrderProducts(String orderId) {
         return [
@@ -7,6 +9,8 @@ public with sharing class OrderController {
             WHERE OrderId = :orderId ORDER BY Product2.Name
         ];
     }
+    
+    /* This method is returning staus and pricebookid based on orderid*/
     @AuraEnabled(cacheable=true)
     public static Order getOrderDetails(String orderId) {
 
@@ -14,6 +18,7 @@ public with sharing class OrderController {
                 
     }
 
+    /* This method is updating order product and order status to Activated after the activate button is clicked*/
     @AuraEnabled
     public static void activateOrder(List<OrderItem> ordProducts) {
         
@@ -30,13 +35,14 @@ public with sharing class OrderController {
         obj.Status = 'Activated';     
         update obj;
     }
-
+    
+    /* This method is returning products based on pricebookentry and orderid */
     @AuraEnabled(cacheable=true)
     public static List<PricebookEntry> getAvailableProducts(String orderId) {
         List<PricebookEntry> availableProducts = new List<PricebookEntry>();
         Map<String, PricebookEntry> aProductsMap = new Map<String, PricebookEntry>();
         Order ordObj =  getOrderDetails(orderId);        
-        availableProducts = [select Id,Name,Pricebook2Id,Product2Id,UnitPrice from PricebookEntry where IsActive = true AND  Pricebook2Id =: ordObj.Pricebook2Id order by Name limit 10];//'01s8b000001N0c5AAC'
+        availableProducts = [select Id,Name,Pricebook2Id,Product2Id,UnitPrice from PricebookEntry where IsActive = true AND  Pricebook2Id =: ordObj.Pricebook2Id ORDER BY Name limit 10];//'01s8b000001N0c5AAC'
         
         //Logic to sort -Products that are already added to the order should appear on top
         List<OrderItem> orderProduts = new List<OrderItem>();
@@ -64,6 +70,10 @@ public with sharing class OrderController {
         return sortedList;
         
     }
+
+    /*Inserting and Updating Order Item */
+
+    /* if product alredy exist then update the quantity field of the same product and if not present then insert it as frest order item */
 
     @AuraEnabled
     public static void addtoOrder(List<PricebookEntry> products, String orderId) {

@@ -41,15 +41,14 @@ export default class OrderProducts extends LightningElement {
             }
         }
         
-        // To refresh orderProduct data table
-        @api handleClick() {
-             refreshApex(this._wiredData);
-        }
-
+            // To refresh orderProduct data table
+            @api handleClick() {
+                refreshApex(this._wiredData);
+            }
 
     activateOrder() { 
         
-        activateOrder({ ordProducts : this.responseTest }) // from here passing orderitems to apex controller and getting response result
+    activateOrder({ ordProducts : this.responseTest }) // from here passing orderitems to apex controller and getting response result
             .then(result => {
                 this.message = result;
                 this.error = undefined;
@@ -74,6 +73,5 @@ export default class OrderProducts extends LightningElement {
                     }),
                 );
             });
-    }
-    
+    }    
 }

@@ -28,7 +28,6 @@ export default class AvailableProducts extends LightningElement {
         const { data, error } = wireResult;
         this._wiredData = wireResult;
         if(data){
-            console.log("OppData", data);
             this.products = data;
         }
         if(error) {
@@ -42,7 +41,6 @@ export default class AvailableProducts extends LightningElement {
         const { data, error } = wireResult;
         this._wiredData2 = wireResult;
         if(data){
-            console.log("OppData", data);
             this.orderDetails = data;
             if(this.orderDetails && this.orderDetails.Status == 'Activated') {
                 this.buttonDisable = true;

@@ -18,7 +18,7 @@ export default class AvailableProducts extends LightningElement {
     @track orderDetails;
     error;    
     columns = COLS;
-    buttonvisible=false;
+    buttonvisible = false;
     buttonDisable = false;
     
 

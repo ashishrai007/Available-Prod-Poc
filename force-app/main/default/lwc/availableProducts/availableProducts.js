@@ -69,9 +69,8 @@ export default class AvailableProducts extends LightningElement {
                             variant: 'success',
                         }),
                     );
-                }
-                             
-                this.template.querySelector('lightning-datatable').selectedRows=[];
+                }                             
+                
                 this.template.querySelector('c-order-products').handleClick();
             })
             .catch(error => {
